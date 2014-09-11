@@ -34,6 +34,13 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
      -->
+     
+	<aop:aspectj-autoproxy>
+		<aop:include name="controllerLogger" />
+	</aop:aspectj-autoproxy>
+
+	<beans:bean id="controllerLogger" class="com.cec.restapijpa.util.ControllerLoggerAspect" />     
+
 
 
 </beans:beans>

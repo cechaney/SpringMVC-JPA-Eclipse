@@ -20,12 +20,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cec.restapijpa.domain.LoginAttempt;
 import com.cec.restapijpa.domain.Profile;
 import com.cec.restapijpa.services.ProfileService;
+import com.cec.restapijpa.util.HelloUtil;
 
 @Controller
 public class ProfileController {
 	
     @Autowired
     ProfileService profileService;
+    
+    @Autowired
+    HelloUtil helloUtil;
     
 	@RequestMapping(value="/profile", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody List<Profile> findAllProfile(
@@ -71,11 +75,9 @@ public class ProfileController {
 	}
 
 	@RequestMapping(value="/hello", method = RequestMethod.GET)
-	public @ResponseBody String sayHello(
-			HttpServletRequest req, 
-			HttpServletResponse res){
+	public @ResponseBody String sayHello(){
 
-        return "HELLO JPA!";
+        return helloUtil.sayHello();
 		
 	}    
     
